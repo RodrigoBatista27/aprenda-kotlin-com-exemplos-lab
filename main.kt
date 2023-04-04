@@ -1,5 +1,4 @@
 import model.User
-import repository.AcademicFormationRepository
 import repository.EducationalContentRepository
 
 fun main() {
@@ -9,5 +8,8 @@ fun main() {
 
     val formations = EducationalContentRepository
 
-    val academicFormationRepo = AcademicFormationRepo()
+    val academicFormationRepository = AcademicFormationRepository()
+
+    academicFormationRepository.toSubscribedAndPrintIt(user1, formations.academicFormationsList()[0])
+    academicFormationRepository.toSubscribedAndPrintIt(user2, formations.academicFormationsList()[1])
 }

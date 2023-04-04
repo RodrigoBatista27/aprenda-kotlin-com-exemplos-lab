@@ -4,15 +4,25 @@ import model.AcademicFormation
 import model.User
 import org.jetbrains.annotations.NotNull
 
-class AcademicFormationRepo  {
-    
-    @NotNull
-    private var inscritos = mutableListOf<User>()
-    Private var inscritosEmCursos = mutableListOf<AcademicFormation>
+class AcademicFormationRepository {
 
-    internal fun ParaInscritos(user: User, academicFormation: AcademicFormation) {
-        inscritos.add(user)
-        inscritosEmCursos.add(academicFormation)
-        println    
+    @NotNull
+    private var subscribed = mutableListOf<User>()
+    private var subscribedOnCourses = mutableListOf<AcademicFormation>()
+
+    internal fun toSubscribedAndPrintIt(user: User, academicFormation: AcademicFormation) {
+        subscribed.add(user)
+        subscribedOnCourses.add(academicFormation)
+        println(
+            "Aluno(a) ${user.name} matriculado(a) com sucesso! " +
+                    "A formação selecionada foi ${academicFormation.nameOfFormation}"
+        )
+        academicFormation.contentOfFormation.forEach {
+            println(
+                "Conteúdo ${academicFormation.contentOfFormation.indexOf(it) + 1}  " +
+                        "desta formação: ${it.course}, duração de ${it.duration} " +
+                        "minutos e dificuldade ${it.level}"
+            )
+        }
     }
 }
