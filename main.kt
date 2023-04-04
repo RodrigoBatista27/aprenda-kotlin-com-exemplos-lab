@@ -1,4 +1,6 @@
-
+import model.User
+import repository.AcademicFormationRepository
+import repository.EducationalContentRepository
 
 fun main() {
 
